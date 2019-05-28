@@ -8,18 +8,30 @@
 }
 
 .photo-grid-wrapper {
-  max-width: 80%;
+  width: 80%;
   margin: 0 auto;
 }
 
 .photo-grid {
   display: grid;
-  grid-template: auto / auto auto auto auto;
+  grid-template: auto / auto auto auto;
   gap: 20px;
 
   mat-card {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .photo-grid {
+    grid-template: auto / auto auto;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .photo-grid {
+    grid-template: auto / auto;
   }
 }
