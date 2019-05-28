@@ -1,3 +1,12 @@
+.photos-content-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.loading-spinner {
+  margin-top: 50px;
+}
+
 .photo-grid-wrapper {
   max-width: 80%;
   margin: 0 auto;
@@ -12,9 +21,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    img {
-      width: 100%;
-    }
   }
 }

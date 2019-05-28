@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
 import { MaterialModule } from './material/material.module';
 import { HeaderComponent } from './navigation/header/header.component';
+import { PhotoModalComponent } from './photos/photo-modal/photo-modal.component';
+import { PhotoComponent } from './photos/photo/photo.component';
 import { PhotosComponent } from './photos/photos.component';
 
 @NgModule({
@@ -22,7 +24,9 @@ import { PhotosComponent } from './photos/photos.component';
     HeaderComponent,
     AboutComponent,
     ContactComponent,
-    PhotosComponent
+    PhotosComponent,
+    PhotoModalComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +36,7 @@ import { PhotosComponent } from './photos/photos.component';
     FlexLayoutModule,
     HttpClientModule
   ],
+  entryComponents: [PhotoModalComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

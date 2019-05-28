@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatCardModule,
+  MatDialogModule,
   MatDividerModule,
   MatGridListModule,
   MatIconModule,
@@ -23,7 +24,8 @@ import {
     MatCardModule,
     MatDividerModule,
     MatGridListModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   exports: [
     MatTabsModule,
@@ -33,7 +35,8 @@ import {
     MatCardModule,
     MatDividerModule,
     MatGridListModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule {}
