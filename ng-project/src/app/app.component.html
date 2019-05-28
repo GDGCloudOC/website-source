@@ -1,3 +1,10 @@
-<app-navigation></app-navigation>
-
-<router-outlet></router-outlet>
+<app-layout>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation"> </mat-sidenav>
+    <mat-sidenav-content>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</app-layout>
