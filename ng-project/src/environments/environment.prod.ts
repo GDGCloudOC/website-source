@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  meetupBaseUrl: 'https://api.meetup.com',
+  meetupGroupName: 'gdgcloudoc'
 };

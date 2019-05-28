@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  meetupBaseUrl: 'https://cors-anywhere.herokuapp.com/https://api.meetup.com',
+  meetupGroupName: 'gdgcloudoc'
 };
 
 /*

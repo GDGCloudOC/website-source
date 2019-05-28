@@ -1,0 +1,20 @@
+.photo-grid-wrapper {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template: auto / auto auto auto auto;
+  gap: 20px;
+
+  mat-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="photos-content-wrapper">
+  <mat-spinner *ngIf="loading"></mat-spinner>
+  <div class="photo-grid-wrapper" *ngIf="!loading">
+    <h1>Photos</h1>
+
+    <div class="photo-grid">
+      <mat-card *ngFor="let photo of photos">
+        <mat-card-content>
+          <img [src]="photo.photo_link">
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
