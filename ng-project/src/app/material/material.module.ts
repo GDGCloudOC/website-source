@@ -1,14 +1,16 @@
-import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
 import {
-  MatTabsModule,
-  MatSidenavModule,
-  MatToolbarModule,
   MatButtonModule,
-  MatIconModule,
   MatCardModule,
+  MatDialogModule,
   MatDividerModule,
-  MatGridListModule
+  MatGridListModule,
+  MatIconModule,
+  MatProgressSpinnerModule,
+  MatSidenavModule,
+  MatTabsModule,
+  MatToolbarModule
 } from "@angular/material";
 import { MatJumbotronModule } from "@angular-material-extensions/jumbotron";
 
@@ -23,7 +25,9 @@ import { MatJumbotronModule } from "@angular-material-extensions/jumbotron";
     MatCardModule,
     MatDividerModule,
     MatGridListModule,
-    MatJumbotronModule
+    MatJumbotronModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   exports: [
     MatTabsModule,
@@ -33,8 +37,10 @@ import { MatJumbotronModule } from "@angular-material-extensions/jumbotron";
     MatCardModule,
     MatDividerModule,
     MatButtonModule,
+    MatJumbotronModule,
     MatGridListModule,
-    MatJumbotronModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule {}

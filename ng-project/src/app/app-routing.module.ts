@@ -4,11 +4,13 @@ import { RouterModule, Routes } from "@angular/router";
 
 import { AboutComponent } from "./about/about.component";
 import { ContactComponent } from "./contact/contact.component";
+import { PhotosComponent } from "./photos/photos.component";
 import { EventComponent } from "./events/events.component";
 
 const routes: Routes = [
   { path: "", component: AboutComponent },
   { path: "contact", component: ContactComponent },
+  { path: "photos", component: PhotosComponent },
   { path: "events", component: EventComponent },
   { path: "**", redirectTo: "", pathMatch: "full" }
 ];

@@ -1,20 +1,24 @@
-import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
+import { AboutComponent } from "./about/about.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MaterialModule } from "./material/material.module";
-import { FlexLayoutModule } from "@angular/flex-layout";
-import { LayoutComponent } from "./layout/layout.component";
-import { HomeComponent } from "./home/home.component";
-import { HeaderComponent } from "./navigation/header/header.component";
-import { AboutComponent } from "./about/about.component";
 import { ContactComponent } from "./contact/contact.component";
-import { EventComponent } from "./events/events.component";
-import { EventService } from "./services/event.service";
-import { HttpClientModule } from "@angular/common/http";
+import { HomeComponent } from "./home/home.component";
+import { LayoutComponent } from "./layout/layout.component";
+import { MaterialModule } from "./material/material.module";
+import { HeaderComponent } from "./navigation/header/header.component";
+import { PhotoModalComponent } from "./photos/photo-modal/photo-modal.component";
+import { PhotoComponent } from "./photos/photo/photo.component";
+import { PhotosComponent } from "./photos/photos.component";
 import { EventThumbnailComponent } from "./events/event-thumbnail.component";
 import { EventJumbotronComponent } from "./events/event-jumbotron.component";
+import { EventComponent } from "./events/events.component";
+import { EventService } from "./services/event.service";
 
 @NgModule({
   declarations: [
@@ -26,7 +30,10 @@ import { EventJumbotronComponent } from "./events/event-jumbotron.component";
     ContactComponent,
     EventComponent,
     EventThumbnailComponent,
-    EventJumbotronComponent
+    EventJumbotronComponent,
+    PhotosComponent,
+    PhotoModalComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +44,7 @@ import { EventJumbotronComponent } from "./events/event-jumbotron.component";
     HttpClientModule
   ],
   providers: [EventService],
+  entryComponents: [PhotoModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
