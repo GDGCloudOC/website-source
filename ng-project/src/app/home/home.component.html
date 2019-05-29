@@ -1,9 +1,20 @@
 <section fxLayout="column" fxFlexAlign="stretch">
-  <img src="../../assets/gdg_cloud_oc_horizontal_light.png" width="50%" class="cloud-header" fxFlexAlign="center" />
+  <img
+    src="../../assets/gdg_cloud_oc_horizontal_light.png"
+    width="50%"
+    class="cloud-header"
+    fxFlexAlign="center"
+  />
   <div>
     <nav mat-tab-nav-bar mat-align-tabs="center">
-      <a mat-tab-link *ngFor="let navLink of navLinks" [routerLink]="navLink.path" (click)="activeLink = navLink"
-        [active]="activeLink === navLink">{{ navLink.label }}</a>
+      <a
+        mat-tab-link
+        *ngFor="let navLink of navLinks"
+        [routerLink]="navLink.path"
+        (click)="activeLink = navLink"
+        [active]="activeLink === navLink"
+        >{{ navLink.label }}</a
+      >
     </nav>
     <router-outlet></router-outlet>
   </div>

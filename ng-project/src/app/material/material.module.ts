@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
 import {
   MatButtonModule,
   MatCardModule,
@@ -10,8 +10,9 @@ import {
   MatProgressSpinnerModule,
   MatSidenavModule,
   MatTabsModule,
-  MatToolbarModule,
-} from '@angular/material';
+  MatToolbarModule
+} from "@angular/material";
+import { MatJumbotronModule } from "@angular-material-extensions/jumbotron";
 
 @NgModule({
   declarations: [],
@@ -24,6 +25,7 @@ import {
     MatCardModule,
     MatDividerModule,
     MatGridListModule,
+    MatJumbotronModule,
     MatProgressSpinnerModule,
     MatDialogModule
   ],
@@ -34,6 +36,8 @@ import {
     MatIconModule,
     MatCardModule,
     MatDividerModule,
+    MatButtonModule,
+    MatJumbotronModule,
     MatGridListModule,
     MatProgressSpinnerModule,
     MatDialogModule
