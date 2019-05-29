@@ -2,18 +2,29 @@ import { Component, OnInit } from "@angular/core";
 import { EventService } from "../services/event.service";
 
 @Component({
-  selector: "event-view",
   template: `
-    <div class="about-container">
-      <div fxLayout="row" fxLayoutGap="10px">
-        <div fxLayout="column">
-          <div *ngFor="let item of events">
-            <event-thumbnail [item]="item"></event-thumbnail>
-          </div>
+    <div>
+      <div>
+        <event-jumbotron [event]="events[0]"></event-jumbotron>
+      </div>
+      <div class="grid-container">
+        <div *ngFor="let item of events">
+          <event-thumbnail [item]="item"></event-thumbnail>
         </div>
       </div>
     </div>
-  `
+  `,
+  styles: [
+    `
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat (3, 1fr)
+        grid-gap: 10px;
+        grid-auto-rows: minmax(200px, auto);
+        align: center;
+      }
+    `
+  ]
 })
 export class EventComponent implements OnInit {
   events: [];

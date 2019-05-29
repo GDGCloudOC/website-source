@@ -7,8 +7,10 @@ import {
   MatButtonModule,
   MatIconModule,
   MatCardModule,
-  MatDividerModule
+  MatDividerModule,
+  MatGridListModule
 } from "@angular/material";
+import { MatJumbotronModule } from "@angular-material-extensions/jumbotron";
 
 @NgModule({
   declarations: [],
@@ -19,7 +21,9 @@ import {
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatGridListModule,
+    MatJumbotronModule
   ],
   exports: [
     MatTabsModule,
@@ -27,7 +31,10 @@ import {
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatButtonModule,
+    MatGridListModule,
+    MatJumbotronModule
   ]
 })
 export class MaterialModule {}

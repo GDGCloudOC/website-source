@@ -14,6 +14,7 @@ import { EventComponent } from "./events/events.component";
 import { EventService } from "./services/event.service";
 import { HttpClientModule } from "@angular/common/http";
 import { EventThumbnailComponent } from "./events/event-thumbnail.component";
+import { EventJumbotronComponent } from "./events/event-jumbotron.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EventThumbnailComponent } from "./events/event-thumbnail.component";
     AboutComponent,
     ContactComponent,
     EventComponent,
-    EventThumbnailComponent
+    EventThumbnailComponent,
+    EventJumbotronComponent
   ],
   imports: [
     BrowserModule,
