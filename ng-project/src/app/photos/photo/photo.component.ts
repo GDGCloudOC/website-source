@@ -17,7 +17,6 @@ export class PhotoComponent implements OnInit {
 
   openPhotoModal() {
     this.photoModal.open(PhotoModalComponent, {
-      width: '700px',
       data: {
         photo: this.photo
       }
