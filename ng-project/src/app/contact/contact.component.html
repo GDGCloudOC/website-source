@@ -1,17 +1,33 @@
 <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
   <mat-card class="contact-card">
     <mat-card-header>
-      <mat-card-title><strong>Contact us:</strong></mat-card-title>
+      <mat-card-title><strong>Slack</strong></mat-card-title>
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content>
       <p>
         The best way to reach us is via Slack. New members can sign up
         <a
-          href="https://gdgcloudoc.slack.com/join/shared_invite/enQtNDQ0NzkzOTM2OTY3LTc5MTc4YmY4YzFmZjhlMTZmODRlYzRkYmNmZDdkNDI2MzhiMWVkMTk0MmIzYjFhZmZkZWJjNTM5ZGYzMWI1ZTg"
-          >here</a
-        >
+          href="https://gdgcloudoc.slack.com/join/shared_invite/enQtNDQ0NzkzOTM2OTY3LTc5MTc4YmY4YzFmZjhlMTZmODRlYzRkYmNmZDdkNDI2MzhiMWVkMTk0MmIzYjFhZmZkZWJjNTM5ZGYzMWI1ZTg">here</a>
       </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="contact-card">
+    <mat-card-header>
+      <mat-card-title><strong>Contact us</strong></mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <form action="https://usebasin.com/f/49362a2c0a33" method="POST" id="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message</label>
+        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        <input type="hidden" name="_gotcha">
+        <button type="submit">Send</button>
+      </form>
     </mat-card-content>
   </mat-card>
 </div>
