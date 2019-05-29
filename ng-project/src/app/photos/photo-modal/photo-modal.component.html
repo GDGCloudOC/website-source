@@ -1,0 +1,4 @@
+<div class="photo-modal-container">
+  <mat-spinner *ngIf="loading"></mat-spinner>
+  <img [hidden]="loading" (load)="onLoad()" [src]="data.photo.highres_link">
+</div>
