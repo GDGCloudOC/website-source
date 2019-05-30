@@ -28,7 +28,7 @@
               "src/LICENSE",
               "src/assets"
             ],
-            "styles": ["src/reset.scss", "src/styles.scss"],
+            "styles": ["src/styles.scss"],
             "scripts": [],
             "es5BrowserSupport": true
           },

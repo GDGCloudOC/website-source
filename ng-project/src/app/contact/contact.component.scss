@@ -1,6 +1,72 @@
+.contact-wrapper {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .contact-card {
   margin-top: 20px;
+
+  p {
+    padding-top: 10px;
+  }
 }
-.contact-card p {
-  padding-top: 10px;
+
+#contact-form {
+  fieldset {
+    border: 0;
+    padding: 0;
+    margin: 16px 0 0;
+
+    > * {
+      font-size: 14px;
+      border: 0;
+      display: block;
+      padding: 0;
+      width: 100%;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    label {
+      font-size: 16px;
+    }
+
+    input {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      padding: 10px 0 5px;
+
+      &:focus {
+        border-bottom-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    textarea {
+      padding: 5px;
+      margin-top: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      resize: vertical;
+
+      &:focus {
+        border-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    button {
+      width: 150px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #contact-form {
+    fieldset {
+      button {
+        width: 100%;
+      }
+    }
+  }
 }
