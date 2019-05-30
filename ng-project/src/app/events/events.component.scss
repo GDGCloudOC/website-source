@@ -1,0 +1,30 @@
+.events-grid {
+  display: grid;
+  grid-template: auto / auto auto auto;
+  gap: 20px;
+}
+.events-content-wrapper {
+  justify-content: center;
+  display: flex;
+}
+.loading-spinner {
+  margin-top: 50px;
+}
+.event-content-display {
+  justify-content: center;
+}
+.event-grid-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1024px) {
+  .events-grid {
+    grid-template: auto / auto auto;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .events-grid {
+    grid-template: auto / auto;
+  }
+}

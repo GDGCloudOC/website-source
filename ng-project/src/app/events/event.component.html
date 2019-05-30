@@ -1,11 +1,17 @@
-<mat-card class="event-card">
-  <mat-card-header
-    ><mat-card-title
-      ><h1>{{ event?.name }}</h1></mat-card-title
-    ></mat-card-header
-  ><mat-divider></mat-divider>
-  <mat-card-content>
-    <p>{{ event?.description }}</p>
-  </mat-card-content>
-  <mat-card-footer>{{ event?.yes_rsvp_count }}</mat-card-footer>
-</mat-card>
+<div class="events-content-wrapper">
+  <mat-spinner class="loading-spinner" *ngIf="loading"></mat-spinner>
+  <div class="events-content-display">
+    <div *ngIf="!loading" fxShow.xs="false">
+      <event-jumbotron [event]="events[0]"></event-jumbotron>
+    </div>
+    <div class="event-grid-wrapper">
+      <h1 *ngIf="!loading" class="grid-title">Upcoming</h1>
+      <mat-divider></mat-divider>
+      <div class="events-grid" *ngIf="!loading">
+        <div *ngFor="let item of events">
+          <event-thumbnail [item]="item"></event-thumbnail>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
