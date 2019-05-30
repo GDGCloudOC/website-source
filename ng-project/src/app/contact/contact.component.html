@@ -1,17 +1,44 @@
-<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+<div class="contact-wrapper">
   <mat-card class="contact-card">
     <mat-card-header>
-      <mat-card-title><strong>Contact us:</strong></mat-card-title>
+      <mat-card-title><strong>Slack</strong></mat-card-title>
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content>
       <p>
         The best way to reach us is via Slack. New members can sign up
         <a
-          href="https://gdgcloudoc.slack.com/join/shared_invite/enQtNDQ0NzkzOTM2OTY3LTc5MTc4YmY4YzFmZjhlMTZmODRlYzRkYmNmZDdkNDI2MzhiMWVkMTk0MmIzYjFhZmZkZWJjNTM5ZGYzMWI1ZTg"
-          >here</a
-        >
+          href="https://gdgcloudoc.slack.com/join/shared_invite/enQtNDQ0NzkzOTM2OTY3LTc5MTc4YmY4YzFmZjhlMTZmODRlYzRkYmNmZDdkNDI2MzhiMWVkMTk0MmIzYjFhZmZkZWJjNTM5ZGYzMWI1ZTg">here</a>
       </p>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="contact-card">
+    <mat-card-header>
+      <mat-card-title><strong>Contact us</strong></mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <form accept-charset="UTF-8" [action]="env.contactFormLink" method="POST" id="contact-form">
+        <fieldset>
+          <label for="name">Name (required)</label>
+          <input type="text" id="name" name="name" required>
+        </fieldset>
+        <fieldset>
+          <label for="email">Email (required)</label>
+          <input type="email" id="email" name="email" required>
+        </fieldset>
+        <fieldset>
+          <label for="message">Message (required)</label>
+          <textarea name="message" id="message" rows="10" required></textarea>
+        </fieldset>
+        <fieldset [ngClass]="{'hideFieldset': env.production}">
+          <label *ngIf="!env.production" for="honeypot">Honeypot (visible in dev)</label>
+          <input [type]="env.production ? 'hidden' : 'text'" name="_gotcha">
+        </fieldset>
+        <fieldset>
+          <button mat-raised-button color="primary" type="submit">Send</button>
+        </fieldset>
+      </form>
     </mat-card-content>
   </mat-card>
 </div>

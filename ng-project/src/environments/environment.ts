@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   meetupBaseUrl: 'https://cors-anywhere.herokuapp.com/https://api.meetup.com',
-  meetupGroupName: 'gdgcloudoc'
+  meetupGroupName: 'gdgcloudoc',
+  contactFormLink: 'https://usebasin.com/f/49362a2c0a33'
 };
 
 /*
