@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 import { PhotosService } from '../services/photos.service';
 
@@ -21,10 +22,12 @@ export class PhotosComponent implements OnInit {
         this.loading = false;
       },
       error => {
-        console.log('error retrieving photos:', error);
+        if (!environment.production) {
+          console.log('error retrieving photos:', error);
+        }
         this.loading = false;
         this.errorMessage =
-          'We were unable to retrieve images at this time. Please try again later.';
+          'We were unable to retrieve photos at this time. Please try again later.';
       }
     );
   }
