@@ -10,7 +10,8 @@ import {
   MatProgressSpinnerModule,
   MatSidenavModule,
   MatTabsModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatExpansionModule
 } from "@angular/material";
 import { MatJumbotronModule } from "@angular-material-extensions/jumbotron";
 
@@ -27,7 +28,8 @@ import { MatJumbotronModule } from "@angular-material-extensions/jumbotron";
     MatGridListModule,
     MatJumbotronModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
   ],
   exports: [
     MatTabsModule,
@@ -40,7 +42,8 @@ import { MatJumbotronModule } from "@angular-material-extensions/jumbotron";
     MatJumbotronModule,
     MatGridListModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
   ]
 })
 export class MaterialModule {}

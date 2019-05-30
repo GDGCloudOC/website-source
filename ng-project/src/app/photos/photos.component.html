@@ -2,7 +2,7 @@
   <mat-spinner class="loading-spinner" *ngIf="loading"></mat-spinner>
   <div class="photo-grid-wrapper" *ngIf="!loading">
     <h1>Photos</h1>
-
+    <mat-divider></mat-divider>
     <div class="photo-grid">
       <mat-card *ngFor="let photo of photos">
         <mat-card-content>
