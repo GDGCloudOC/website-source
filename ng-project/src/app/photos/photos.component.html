@@ -1,16 +1,15 @@
 <div class="photos-content-wrapper">
   <mat-spinner class="loading-spinner" *ngIf="loading"></mat-spinner>
   <div class="photo-grid-wrapper" *ngIf="!loading">
-    <h1>Photos</h1>
-
-    <p *ngIf="errorMessage.length">{{ errorMessage }}</p>
+    <h1 *ngIf="errorMessage.length" class="error-message">{{ errorMessage }}</h1>
 
     <div class="photo-grid">
-      <mat-card *ngFor="let photo of photos">
+      <mat-card *ngFor="let photo of photos" (click)="openGallery(photos.indexOf(photo))">
         <mat-card-content>
-          <app-photo [photo]="photo"></app-photo>
+          <img [src]="photo?.url">
         </mat-card-content>
       </mat-card>
+      <ngx-image-gallery [images]="photos" [conf]="imageGalleryConfig"></ngx-image-gallery>
     </div>
   </div>
 </div>

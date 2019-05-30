@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { GALLERY_CONF, GALLERY_IMAGE, NgxImageGalleryComponent } from 'ngx-image-gallery';
 import { environment } from 'src/environments/environment';
 
 import { PhotosService } from '../services/photos.service';
@@ -9,7 +10,19 @@ import { PhotosService } from '../services/photos.service';
   styleUrls: ['./photos.component.scss']
 })
 export class PhotosComponent implements OnInit {
-  photos: any;
+  // get ref to image gallery component
+  @ViewChild(NgxImageGalleryComponent)
+  ngxImageGallery: NgxImageGalleryComponent;
+
+  imageGalleryConfig: GALLERY_CONF = {
+    imageBorderRadius: '0px',
+    showExtUrlControl: false,
+    showImageTitle: false,
+    reactToMouseWheel: false,
+    reactToRightClick: true
+  };
+
+  photos: GALLERY_IMAGE[] = [];
   loading = true;
   errorMessage = '';
 
@@ -18,7 +31,17 @@ export class PhotosComponent implements OnInit {
   ngOnInit() {
     this.photoService.getAllPhotos().subscribe(
       photos => {
-        this.photos = photos;
+        if (!photos.length) {
+          this.errorMessage = 'There are no photos to display at this time.';
+        } else {
+          photos.forEach((photo: any) => {
+            const photoData = {
+              url: photo.photo_link,
+              thumbnailUrl: photo.thumb_link
+            };
+            this.photos.push(photoData);
+          });
+        }
         this.loading = false;
       },
       error => {
@@ -30,5 +53,9 @@ export class PhotosComponent implements OnInit {
           'We were unable to retrieve photos at this time. Please try again later.';
       }
     );
+  }
+
+  openGallery(index: number = 0) {
+    this.ngxImageGallery.open(index);
   }
 }

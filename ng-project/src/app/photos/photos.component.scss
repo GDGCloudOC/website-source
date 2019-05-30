@@ -9,7 +9,11 @@
 
 .photo-grid-wrapper {
   width: 80%;
-  margin: 0 auto;
+  margin: 20px auto 0;
+
+  .error-message {
+    text-align: center;
+  }
 }
 
 .photo-grid {
@@ -21,6 +25,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+    }
   }
 }
 

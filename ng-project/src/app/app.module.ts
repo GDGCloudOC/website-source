@@ -1,24 +1,23 @@
-import { HttpClientModule } from "@angular/common/http";
-import { NgModule } from "@angular/core";
-import { FlexLayoutModule } from "@angular/flex-layout";
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxImageGalleryModule } from 'ngx-image-gallery';
 
-import { AboutComponent } from "./about/about.component";
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { ContactComponent } from "./contact/contact.component";
-import { HomeComponent } from "./home/home.component";
-import { LayoutComponent } from "./layout/layout.component";
-import { MaterialModule } from "./material/material.module";
-import { HeaderComponent } from "./navigation/header/header.component";
-import { PhotoModalComponent } from "./photos/photo-modal/photo-modal.component";
-import { PhotoComponent } from "./photos/photo/photo.component";
-import { PhotosComponent } from "./photos/photos.component";
-import { EventThumbnailComponent } from "./events/event-thumbnail.component";
-import { EventJumbotronComponent } from "./events/event-jumbotron.component";
-import { EventComponent } from "./events/events.component";
-import { EventService } from "./services/event.service";
+import { AboutComponent } from './about/about.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ContactComponent } from './contact/contact.component';
+import { EventJumbotronComponent } from './events/event-jumbotron.component';
+import { EventThumbnailComponent } from './events/event-thumbnail.component';
+import { EventComponent } from './events/events.component';
+import { HomeComponent } from './home/home.component';
+import { LayoutComponent } from './layout/layout.component';
+import { MaterialModule } from './material/material.module';
+import { HeaderComponent } from './navigation/header/header.component';
+import { PhotosComponent } from './photos/photos.component';
+import { EventService } from './services/event.service';
 
 @NgModule({
   declarations: [
@@ -31,9 +30,7 @@ import { EventService } from "./services/event.service";
     EventComponent,
     EventThumbnailComponent,
     EventJumbotronComponent,
-    PhotosComponent,
-    PhotoModalComponent,
-    PhotoComponent
+    PhotosComponent
   ],
   imports: [
     BrowserModule,
@@ -41,10 +38,10 @@ import { EventService } from "./services/event.service";
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxImageGalleryModule
   ],
   providers: [EventService],
-  entryComponents: [PhotoModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
