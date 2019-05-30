@@ -31,7 +31,7 @@
           <label for="message">Message (required)</label>
           <textarea name="message" id="message" rows="10" required></textarea>
         </fieldset>
-        <fieldset [hidden]="env.production">
+        <fieldset [ngClass]="{'hideFieldset': env.production}">
           <label *ngIf="!env.production" for="honeypot">Honeypot (visible in dev)</label>
           <input [type]="env.production ? 'hidden' : 'text'" name="_gotcha">
         </fieldset>
