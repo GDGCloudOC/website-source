@@ -5,7 +5,7 @@
       <event-jumbotron [event]="events[0]"></event-jumbotron>
     </div>
     <div class="event-grid-wrapper">
-      <h1 *ngIf="!loading" class="grid-title">Upcoming</h1>
+      <h2 *ngIf="!loading" class="grid-title">Upcoming</h2>
       <mat-divider></mat-divider>
       <div class="events-grid" *ngIf="!loading">
         <div *ngFor="let item of events">
