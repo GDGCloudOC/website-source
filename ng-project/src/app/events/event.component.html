@@ -7,16 +7,16 @@
     <div class="event-grid-wrapper">
       <h2 *ngIf="!loading" class="grid-title">Upcoming Events</h2>
       <mat-divider></mat-divider>
-      <h2 *ngIf="!loading && errorMessages?.upcomingEvents?.length">{{ errorMessages?.upcomingEvents }}</h2>
+      <h3 *ngIf="!loading && errorMessages?.upcomingEvents?.length">{{ errorMessages?.upcomingEvents }}</h3>
       <div class="events-grid" *ngIf="!loading && !errorMessages?.upcomingEvents?.length">
         <div *ngFor="let item of events">
           <event-thumbnail [item]="item"></event-thumbnail>
         </div>
       </div>
 
-      <h1 *ngIf="!loading" class="grid-title">Past Events</h1>
+      <h2 *ngIf="!loading" class="grid-title">Past Events</h2>
       <mat-divider></mat-divider>
-      <h2 *ngIf="!loading && errorMessages?.pastEvents?.length">{{ errorMessages?.pastEvents }}</h2>
+      <h3 *ngIf="!loading && errorMessages?.pastEvents?.length">{{ errorMessages?.pastEvents }}</h3>
       <div class="events-grid" *ngIf="!loading && !errorMessages?.pastEvents?.length">
         <div *ngFor="let item of pastEvents">
           <event-thumbnail [item]="item" [pastEvent]=true></event-thumbnail>
