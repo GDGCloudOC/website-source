@@ -19,6 +19,7 @@ import { EventThumbnailComponent } from "./events/event-thumbnail.component";
 import { EventJumbotronComponent } from "./events/event-jumbotron.component";
 import { EventComponent } from "./events/events.component";
 import { EventService } from "./services/event.service";
+import { SidenavListComponent } from "./navigation/side-nav/sidenav-list.component";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { EventService } from "./services/event.service";
     EventJumbotronComponent,
     PhotosComponent,
     PhotoModalComponent,
-    PhotoComponent
+    PhotoComponent,
+    SidenavListComponent
   ],
   imports: [
     BrowserModule,

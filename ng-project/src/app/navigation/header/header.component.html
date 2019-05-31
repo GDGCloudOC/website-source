@@ -1,8 +1,29 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="app-toolbar">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div fxFlexAlign="center">
+    <a [routerLink]="['/about']"
+      ><img
+        src="../../../assets/gdg_cloud_oc_horizontal.png"
+        class="header-image"
+    /></a>
+  </div>
   <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
     <ul fxLayout fxLayoutGap="15px" class="navigation-items">
       <li>
-        <p>Orange County's premier Google Cloud Platform meetup</p>
+        <a [routerLink]="['/about']">About</a>
+      </li>
+      <li>
+        <a [routerLink]="['/events']">Events</a>
+      </li>
+      <li>
+        <a [routerLink]="['/photos']">Photos</a>
+      </li>
+      <li>
+        <a [routerLink]="['/contact']">Contact Us</a>
       </li>
     </ul>
   </div>
