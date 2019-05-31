@@ -1,15 +1,25 @@
 <div class="events-content-wrapper">
   <mat-spinner class="loading-spinner" *ngIf="loading"></mat-spinner>
   <div class="events-content-display">
-    <div *ngIf="!loading" fxShow.xs="false">
-      <event-jumbotron [event]="events[0]"></event-jumbotron>
+    <div *ngIf="!loading && !errorMessages?.upcomingEvents?.length" fxShow.xs="false">
+      <event-jumbotron [event]="events ? events[0] : {}"></event-jumbotron>
     </div>
     <div class="event-grid-wrapper">
-      <h2 *ngIf="!loading" class="grid-title">Upcoming</h2>
+      <h2 *ngIf="!loading" class="grid-title">Upcoming Events</h2>
       <mat-divider></mat-divider>
-      <div class="events-grid" *ngIf="!loading">
+      <h2 *ngIf="!loading && errorMessages?.upcomingEvents?.length">{{ errorMessages?.upcomingEvents }}</h2>
+      <div class="events-grid" *ngIf="!loading && !errorMessages?.upcomingEvents?.length">
         <div *ngFor="let item of events">
           <event-thumbnail [item]="item"></event-thumbnail>
+        </div>
+      </div>
+
+      <h1 *ngIf="!loading" class="grid-title">Past Events</h1>
+      <mat-divider></mat-divider>
+      <h2 *ngIf="!loading && errorMessages?.pastEvents?.length">{{ errorMessages?.pastEvents }}</h2>
+      <div class="events-grid" *ngIf="!loading && !errorMessages?.pastEvents?.length">
+        <div *ngFor="let item of pastEvents">
+          <event-thumbnail [item]="item" [pastEvent]=true></event-thumbnail>
         </div>
       </div>
     </div>
