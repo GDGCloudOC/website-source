@@ -1,13 +1,16 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { GALLERY_CONF, GALLERY_IMAGE, NgxImageGalleryComponent } from 'ngx-image-gallery';
-import { environment } from 'src/environments/environment';
-
-import { PhotosService } from '../services/photos.service';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import {
+  GALLERY_CONF,
+  GALLERY_IMAGE,
+  NgxImageGalleryComponent
+} from "ngx-image-gallery";
+import { environment } from "src/environments/environment";
+import { PhotosService } from "../services/photos.service";
 
 @Component({
-  selector: 'app-photos',
-  templateUrl: './photos.component.html',
-  styleUrls: ['./photos.component.scss']
+  selector: "app-photos",
+  templateUrl: "./photos.component.html",
+  styleUrls: ["./photos.component.scss"]
 })
 export class PhotosComponent implements OnInit {
   // get ref to image gallery component
@@ -15,7 +18,7 @@ export class PhotosComponent implements OnInit {
   ngxImageGallery: NgxImageGalleryComponent;
 
   imageGalleryConfig: GALLERY_CONF = {
-    imageBorderRadius: '0px',
+    imageBorderRadius: "0px",
     showExtUrlControl: false,
     showImageTitle: false,
     reactToMouseWheel: false,
@@ -24,7 +27,7 @@ export class PhotosComponent implements OnInit {
 
   photos: GALLERY_IMAGE[] = [];
   loading = true;
-  errorMessage = '';
+  errorMessage = "";
 
   constructor(private photoService: PhotosService) {}
 
@@ -32,7 +35,7 @@ export class PhotosComponent implements OnInit {
     this.photoService.getAllPhotos().subscribe(
       photos => {
         if (!photos.length) {
-          this.errorMessage = 'There are no photos to display at this time.';
+          this.errorMessage = "There are no photos to display at this time.";
         } else {
           photos.forEach((photo: any) => {
             const photoData = {
@@ -46,11 +49,11 @@ export class PhotosComponent implements OnInit {
       },
       error => {
         if (!environment.production) {
-          console.log('error retrieving photos:', error);
+          console.log("error retrieving photos:", error);
         }
         this.loading = false;
         this.errorMessage =
-          'We were unable to retrieve photos at this time. Please try again later.';
+          "We were unable to retrieve photos at this time. Please try again later.";
       }
     );
   }

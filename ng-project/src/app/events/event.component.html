@@ -1,27 +1,49 @@
 <div class="events-content-wrapper">
-  <mat-spinner class="loading-spinner" *ngIf="loading"></mat-spinner>
   <div class="events-content-display">
-    <div *ngIf="!loading && !errorMessages?.upcomingEvents?.length" fxShow.xs="false">
+    <mat-spinner class="loading-spinner" *ngIf="loading"></mat-spinner>
+    <div
+      *ngIf="!loading && !errorMessages?.upcomingEvents?.length"
+      fxShow.xs="false"
+    >
       <event-jumbotron [event]="events ? events[0] : {}"></event-jumbotron>
     </div>
-    <div class="event-grid-wrapper">
-      <h2 *ngIf="!loading" class="grid-title">Upcoming Events</h2>
-      <mat-divider></mat-divider>
-      <h3 *ngIf="!loading && errorMessages?.upcomingEvents?.length">{{ errorMessages?.upcomingEvents }}</h3>
-      <div class="events-grid" *ngIf="!loading && !errorMessages?.upcomingEvents?.length">
-        <div *ngFor="let item of events">
-          <event-thumbnail [item]="item"></event-thumbnail>
-        </div>
-      </div>
 
-      <h2 *ngIf="!loading" class="grid-title">Past Events</h2>
-      <mat-divider></mat-divider>
-      <h3 *ngIf="!loading && errorMessages?.pastEvents?.length">{{ errorMessages?.pastEvents }}</h3>
-      <div class="events-grid" *ngIf="!loading && !errorMessages?.pastEvents?.length">
-        <div *ngFor="let item of pastEvents">
-          <event-thumbnail [item]="item" [pastEvent]=true></event-thumbnail>
-        </div>
-      </div>
+    <div class="event-grid-wrapper">
+      <mat-tab-group
+        *ngIf="!loading"
+        mat-stretch-tabs
+        animationDuration="750ms"
+        class="event-tab-group"
+        dynamicHeight
+      >
+        <mat-tab label="Upcoming">
+          <h3 *ngIf="!loading && errorMessages?.upcomingEvents?.length">
+            {{ errorMessages?.upcomingEvents }}
+          </h3>
+          <div
+            class="events-grid"
+            *ngIf="!loading && !errorMessages?.upcomingEvents?.length"
+          >
+            <div *ngFor="let item of events">
+              <event-thumbnail [item]="item"></event-thumbnail>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Past">
+          <h3 *ngIf="!loading && errorMessages?.pastEvents?.length">
+            {{ errorMessages?.pastEvents }}
+          </h3>
+          <div
+            class="events-grid"
+            *ngIf="!loading && !errorMessages?.pastEvents?.length"
+          >
+            <div *ngFor="let item of pastEvents">
+              <event-thumbnail
+                [item]="item"
+                [pastEvent]="true"
+              ></event-thumbnail>
+            </div></div></mat-tab
+      ></mat-tab-group>
     </div>
   </div>
 </div>
