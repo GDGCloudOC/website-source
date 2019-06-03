@@ -19,8 +19,16 @@
   <mat-divider></mat-divider>
 
   <mat-card-actions class="event-footer">
-    <span>{{ item?.yes_rsvp_count }} of {{ item?.rsvp_limit }} attending </span>
-    <a *ngIf="!pastEvent" mat-button href="{{ item?.link }}" color="primary" target="_blank"
+    <span *ngIf="!pastEvent"
+      >{{ item?.yes_rsvp_count }} of {{ item?.rsvp_limit }} attending</span
+    >
+    <span *ngIf="pastEvent">{{ item?.yes_rsvp_count }} attended</span>
+    <a
+      *ngIf="!pastEvent"
+      mat-button
+      href="{{ item?.link }}"
+      color="primary"
+      target="_blank"
       >RSVP</a
     >
   </mat-card-actions>

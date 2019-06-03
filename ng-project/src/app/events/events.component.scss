@@ -1,23 +1,26 @@
-.events-grid {
-  display: grid;
-  grid-template: auto / calc(100% / 3) calc(100% / 3) calc(100% / 3);
-  gap: 20px;
-}
 .events-content-wrapper {
   justify-content: center;
   display: flex;
   margin-top: 60px;
 }
+
+.event-grid-wrapper {
+  width: 80%;
+  margin: auto;
+}
+
+.events-grid {
+  display: grid;
+  grid-template: auto / calc(100% * 1 / 3 - 9px) calc(100% * 1 / 3 - 9px) calc(
+      100% * 1 / 3 - 9px
+    );
+  gap: 13px;
+}
+
 .loading-spinner {
   margin-top: 200px;
 }
-.event-content-display {
-  justify-content: center;
-}
-.event-grid-wrapper {
-  width: 80%;
-  margin: 0 auto;
-}
+
 @media screen and (max-width: 1024px) {
   .events-grid {
     grid-template: auto / 50% 50%;

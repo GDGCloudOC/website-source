@@ -11,8 +11,8 @@ import { Component, OnInit, Input } from "@angular/core";
         <h1>{{ event?.name }}</h1>
 
         <h3>
-          {{ event?.local_date ? this.convertDate(event?.local_date) : '' }} |
-          {{ event?.local_time ? this.convertTime(event?.local_time) : '' }}
+          {{ event?.local_date ? this.convertDate(event?.local_date) : "" }} |
+          {{ event?.local_time ? this.convertTime(event?.local_time) : "" }}
         </h3>
 
         <p [innerHtml]="event?.description"></p>
@@ -21,7 +21,9 @@ import { Component, OnInit, Input } from "@angular/core";
           <span
             >{{ event?.yes_rsvp_count }} of {{ event?.rsvp_limit }} attending
           </span>
-          <a mat-button href="{{ event?.link }}" color="primary">RSVP</a>
+          <a mat-button href="{{ event?.link }}" color="primary" target="_blank"
+            >RSVP</a
+          >
         </mat-card-actions>
       </mat-jumbotron-content>
     </mat-jumbotron>

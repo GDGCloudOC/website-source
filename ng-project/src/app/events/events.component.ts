@@ -12,8 +12,8 @@ export class EventComponent implements OnInit {
   pastEvents = [];
   loading = true;
   errorMessages = {
-    upcomingEvents: '',
-    pastEvents: ''
+    upcomingEvents: "",
+    pastEvents: ""
   };
 
   constructor(private eventService: EventService) {}
@@ -36,21 +36,23 @@ export class EventComponent implements OnInit {
       if (!environment.production) {
         console.log('error retrieving upcoming events:', error);
       }
-      this.errorMessages.upcomingEvents =
-        'We were unable to retrieve upcoming events at this time. Please try again later.';
-    });
+    );
 
-    this.eventService.getEvents(Status.past, 12).subscribe(pastEvents => {
-      this.pastEvents = pastEvents;
-    }, error => {
-      if (!environment.production) {
-        console.log('error retrieving past events:', error);
+    this.eventService.getEvents(Status.past, 12).subscribe(
+      pastEvents => {
+        this.pastEvents = pastEvents;
+      },
+      error => {
+        if (!environment.production) {
+          console.log("error retrieving past events:", error);
+        }
+        this.loading = false;
+        this.errorMessages.pastEvents =
+          "We were unable to retrieve past events at this time. Please try again later.";
+      },
+      () => {
+        this.loading = false;
       }
-      this.loading = false;
-      this.errorMessages.pastEvents =
-        'We were unable to retrieve past events at this time. Please try again later.';
-    }, () => {
-      this.loading = false;
-    });
+    );
   }
 }
