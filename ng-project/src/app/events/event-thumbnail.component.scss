@@ -4,6 +4,10 @@
 .event-card p {
   padding-top: 10px;
   text-align: left;
+  // for incompatible browsers
+  word-break: break-all;
+  // for compatible browsers
+  word-break: break-word;
 }
 .event-footer span {
   padding: 10px;

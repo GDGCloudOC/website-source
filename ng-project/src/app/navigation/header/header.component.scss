@@ -23,6 +23,16 @@ mat-toolbar {
   }
 }
 
+.header-image {
+  width: 100%;
+  max-width: 250px;
+  padding-top: 12px;
+
+  &-link {
+    display: block;
+  }
+}
+
 @media (max-width: 600px) {
   .header-image {
     width: 60%;
@@ -35,11 +45,6 @@ mat-toolbar {
     min-width: 229px;
     min-height: 58px;
   }
-}
-
-.header-image {
-  width: 45%;
-  padding-top: 12px;
 }
 
 .app-toolbar {

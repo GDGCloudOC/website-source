@@ -1,6 +1,6 @@
 .events-grid {
   display: grid;
-  grid-template: auto / auto auto auto;
+  grid-template: auto / calc(100% / 3) calc(100% / 3) calc(100% / 3);
   gap: 20px;
 }
 .events-content-wrapper {
@@ -20,12 +20,12 @@
 }
 @media screen and (max-width: 1024px) {
   .events-grid {
-    grid-template: auto / auto auto;
+    grid-template: auto / 50% 50%;
   }
 }
 
 @media screen and (max-width: 650px) {
   .events-grid {
-    grid-template: auto / auto;
+    grid-template: auto / 100%;
   }
 }
