@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
-
-import { EventService, Status } from '../services/event.service';
+import { Component, OnInit } from "@angular/core";
+import { EventService, Status } from "../services/event.service";
+import { environment } from "src/environments/environment";
 
 @Component({
   templateUrl: "./event.component.html",
