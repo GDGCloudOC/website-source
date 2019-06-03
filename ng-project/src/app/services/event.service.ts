@@ -25,10 +25,10 @@ export class EventService {
     return returnVal;
   }
 
-  getEvents(timeframe: Status, monthLimit: number = 6): Observable<[]> {
+  getEvents(timeframe: Status, monthLimit: number = 6): Observable<any> {
     const limit = timeframe === Status.upcoming ? 'no_later_than' : 'no_earlier_than';
     const offset = timeframe === Status.upcoming ? monthLimit : -1 * monthLimit;
-    return this.http.get<[]>(
+    return this.http.get<any>(
       `${this.baseUrl}/events?status=${timeframe}&${limit}=${this.offsetDate(offset)}&desc=${timeframe === Status.past}`
     );
   }
