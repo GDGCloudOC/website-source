@@ -1,19 +1,35 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 
+export enum Status {
+  upcoming = 'upcoming',
+  past = 'past',
+  // for debugging purposes
+  error = 'error'
+}
+
 @Injectable()
 export class EventService {
+  private baseUrl = `${environment.meetupBaseUrl}/${environment.meetupGroupName}`;
+
   constructor(private http: HttpClient) {}
 
-  getEvents(): Observable<[]> {
-    const headers = new HttpHeaders({
-      "Content-Type": "application/json"
-    });
-    const baseUrl = `${environment.meetupBaseUrl}/${
-      environment.meetupGroupName
-    }/events`;
-    return this.http.get<[]>(baseUrl, { headers: headers });
+  private offsetDate(offset: number): string {
+    const currentDate = new Date();
+    const offsetMonths = new Date(currentDate.setMonth(currentDate.getMonth() + offset));
+    const newDate = offsetMonths.toISOString();
+    const regEx = /[^z]+/gi;
+    const returnVal = newDate.match(regEx)[0];
+    return returnVal;
+  }
+
+  getEvents(timeframe: Status, monthLimit: number = 6): Observable<[]> {
+    const limit = timeframe === Status.upcoming ? 'no_later_than' : 'no_earlier_than';
+    const offset = timeframe === Status.upcoming ? monthLimit : -1 * monthLimit;
+    return this.http.get<[]>(
+      `${this.baseUrl}/events?status=${timeframe}&${limit}=${this.offsetDate(offset)}&desc=${timeframe === Status.past}`
+    );
   }
 }

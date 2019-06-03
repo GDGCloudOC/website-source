@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { EventService } from "../services/event.service";
+import { EventService, Status } from "../services/event.service";
+import { environment } from "src/environments/environment";
 
 @Component({
   templateUrl: "./event.component.html",
@@ -7,7 +8,13 @@ import { EventService } from "../services/event.service";
 })
 export class EventComponent implements OnInit {
   events: [];
+  pastEvents: [];
   loading = true;
+  errorMessages = {
+    upcomingEvents: '',
+    pastEvents: ''
+  };
+
   constructor(private eventService: EventService) {}
 
   ngOnInit() {
@@ -15,8 +22,26 @@ export class EventComponent implements OnInit {
   }
 
   getAllEvents() {
-    this.eventService.getEvents().subscribe(events => {
+    this.eventService.getEvents(Status.upcoming).subscribe(events => {
       this.events = events;
+    }, error => {
+      if (!environment.production) {
+        console.log('error retrieving upcoming events:', error);
+      }
+      this.errorMessages.upcomingEvents =
+        'We were unable to retrieve upcoming events at this time. Please try again later.';
+    });
+
+    this.eventService.getEvents(Status.past, 12).subscribe(pastEvents => {
+      this.pastEvents = pastEvents;
+    }, error => {
+      if (!environment.production) {
+        console.log('error retrieving past events:', error);
+      }
+      this.loading = false;
+      this.errorMessages.pastEvents =
+        'We were unable to retrieve past events at this time. Please try again later.';
+    }, () => {
       this.loading = false;
     });
   }

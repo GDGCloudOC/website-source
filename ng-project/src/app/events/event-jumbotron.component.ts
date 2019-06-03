@@ -11,8 +11,8 @@ import { Component, OnInit, Input } from "@angular/core";
         <h1>{{ event?.name }}</h1>
 
         <h3>
-          {{ this.convertDate(event?.local_date) }} |
-          {{ this.convertTime(event?.local_time) }}
+          {{ event?.local_date ? this.convertDate(event?.local_date) : '' }} |
+          {{ event?.local_time ? this.convertTime(event?.local_time) : '' }}
         </h3>
 
         <p [innerHtml]="event?.description"></p>
