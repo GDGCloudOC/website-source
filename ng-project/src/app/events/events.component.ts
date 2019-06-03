@@ -23,18 +23,21 @@ export class EventComponent implements OnInit {
   }
 
   getAllEvents() {
-    this.eventService.getEvents(Status.upcoming).subscribe(events => {
-      this.nextEvent = events ? events[0] : {};
-      if (events) {
-        events.forEach((event: any, index: number) => {
-          if (index !== 0) {
-            this.upcomingEvents.push(event);
-          }
-        });
-      }
-    }, error => {
-      if (!environment.production) {
-        console.log('error retrieving upcoming events:', error);
+    this.eventService.getEvents(Status.upcoming).subscribe(
+      events => {
+        this.nextEvent = events ? events[0] : {};
+        if (events) {
+          events.forEach((event: any, index: number) => {
+            if (index !== 0) {
+              this.upcomingEvents.push(event);
+            }
+          });
+        }
+      },
+      error => {
+        if (!environment.production) {
+          console.log("error retrieving upcoming events:", error);
+        }
       }
     );
 

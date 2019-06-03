@@ -1,4 +1,5 @@
 <div class="events-content-wrapper">
+  <mat-spinner class="loading-spinner" *ngIf="loading"></mat-spinner>
   <div class="events-content-display">
     <div
       *ngIf="!loading && !errorMessages?.upcomingEvents?.length"
