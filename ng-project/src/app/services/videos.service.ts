@@ -11,9 +11,19 @@ export class VideosService {
 
   constructor(private http: HttpClient) { }
 
-  getAllVideos(): Observable<any> {
+  getPlaylistId(): Observable<any> {
     return this.http.get<any>(
       `${environment.youtubeBaseUrl}/channels?part=contentDetails&id=${environment.youtubeGDGId}&key=${youtubeApiKey}`
     );
+  }
+
+  getVideosByPlaylistId(playlistId: string, pageToken?: string): Observable<any> {
+    return this.http.get<any>(
+      environment.youtubeBaseUrl
+      + '/playlistItems?part=contentDetails&playlistId='
+      + playlistId
+      + (pageToken ? '&pageToken=' + pageToken : '')
+      + '&maxResults=5'
+      + '&key=' + youtubeApiKey);
   }
 }
