@@ -16,9 +16,11 @@ import { HomeComponent } from "./home/home.component";
 import { LayoutComponent } from "./layout/layout.component";
 import { MaterialModule } from "./material/material.module";
 import { HeaderComponent } from "./navigation/header/header.component";
-import { PhotosComponent } from "./photos/photos.component";
-import { EventService } from "./services/event.service";
+import { PhotosComponent } from "./media/photos/photos.component";
 import { SidenavListComponent } from "./navigation/side-nav/sidenav-list.component";
+import { MediaComponent } from './media/media.component';
+import { VideosComponent } from './media/videos/videos.component';
+import { EventService } from './services/event.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { SidenavListComponent } from "./navigation/side-nav/sidenav-list.compone
     EventThumbnailComponent,
     EventJumbotronComponent,
     PhotosComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    MediaComponent,
+    VideosComponent
   ],
   imports: [
     BrowserModule,

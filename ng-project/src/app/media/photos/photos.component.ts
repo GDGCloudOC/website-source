@@ -5,7 +5,7 @@ import {
   NgxImageGalleryComponent
 } from "ngx-image-gallery";
 import { environment } from "src/environments/environment";
-import { PhotosService } from "../services/photos.service";
+import { PhotosService } from "../../services/photos.service";
 
 @Component({
   selector: "app-photos",
