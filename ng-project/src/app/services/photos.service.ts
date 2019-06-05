@@ -11,7 +11,7 @@ export class PhotosService {
 
   getAllPhotos(): Observable<any> {
     return this.http.get<any>(
-      `${environment.meetupBaseUrl}/${environment.meetupGroupName}/photos`
+      `${environment.serverUrl}/photos`
     );
   }
 }
