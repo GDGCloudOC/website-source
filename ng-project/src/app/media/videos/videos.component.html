@@ -1,0 +1,27 @@
+<div class="videos-content-wrapper">
+  <div
+    *ngIf="!loading"
+    class="videos-wrapper"
+  >
+    <h3 *ngIf="errorMessage?.length">{{ errorMessage }}</h3>
+    <mat-card
+      *ngFor="let video of videoData"
+      class="video-card"
+      [ngStyle]="{'height': videoHeight + 'px'}"
+    >
+      <mat-spinner class="loading-spinner" *ngIf="video.loading"></mat-spinner>
+      <iframe
+        [hidden]="video.loading"
+        (load)="onLoadVideo(video)"
+        width="100%"
+        [height]="videoHeight"
+        [src]="video.url"
+        frameborder="0"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </mat-card>
+
+    <button mat-raised-button color="primary" (click)="loadVideos(true)" *ngIf="nextPageToken?.length">Load more</button>
+  </div>
+</div>

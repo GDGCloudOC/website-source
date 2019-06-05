@@ -31,8 +31,7 @@ import { Component, OnInit, Input } from "@angular/core";
   styles: [
     `
       .jumbotron-card {
-        margin: 20px auto 0 auto;
-        padding: 10px;
+        margin: 20px auto 10px;
         font-size: medium;
       }
       .jumbotron-card p {
