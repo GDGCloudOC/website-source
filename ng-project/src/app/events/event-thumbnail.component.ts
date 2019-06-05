@@ -45,7 +45,8 @@ export class EventThumbnailComponent implements OnInit {
                 comment: comment.comment,
                 replies: comment.replies,
                 member: comment.member.name,
-                photo: comment.member.photo.thumb_link
+                photo: comment.member.photo,
+                role: comment.member.role
               };
               this.eventComments.push(commentData);
             },

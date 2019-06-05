@@ -23,6 +23,9 @@
             class="events-grid"
             *ngIf="!loading && !errorMessages?.upcomingEvents?.length"
           >
+            <div fxShow.xs="true" fxShow.gt-xs="false">
+              <event-thumbnail [item]="nextEvent"></event-thumbnail>
+            </div>
             <div *ngFor="let item of upcomingEvents">
               <event-thumbnail [item]="item"></event-thumbnail>
             </div>
