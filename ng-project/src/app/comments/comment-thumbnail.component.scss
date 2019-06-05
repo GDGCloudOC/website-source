@@ -1,0 +1,11 @@
+.comment-card {
+  margin-bottom: 5px;
+}
+
+.comment-card p {
+  padding-top: 10px;
+  // for incompatible browsers
+  word-break: break-all;
+  // for compatible browsers
+  word-break: break-word;
+}
