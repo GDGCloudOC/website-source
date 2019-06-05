@@ -1,9 +1,25 @@
 <mat-card class="comment-card">
   <mat-card-header>
+    <img mat-card-avatar src="{{ comment?.photo.thumb_link }}" />
     <mat-card-title>{{ comment?.member }}</mat-card-title>
+    <mat-card-subtitle>
+      {{
+        comment?.role ? this.roleUppercase(comment?.role) : "Member"
+      }}</mat-card-subtitle
+    >
   </mat-card-header>
   <mat-divider></mat-divider>
   <mat-card-content class="comment-card-content">
-    <p>{{ comment?.comment }}</p>
+    <p [innerHTML]="comment?.comment | linkify"></p>
   </mat-card-content>
+  <mat-card-actions *ngIf="comment?.replies">
+    <button mat-button color="primary" (click)="showReplies()">
+      {{ btnName }}
+    </button>
+  </mat-card-actions>
+  <div *ngIf="replies">
+    <div *ngFor="let reply of comment.replies">
+      <comment-reply [reply]="reply"></comment-reply>
+    </div>
+  </div>
 </mat-card>

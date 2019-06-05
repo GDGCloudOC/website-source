@@ -4,6 +4,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgxImageGalleryModule } from "ngx-image-gallery";
+import { NgxLinkifyjsModule } from "ngx-linkifyjs";
 
 import { AboutComponent } from "./about/about.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -24,6 +25,7 @@ import { CommentThumbnailComponent } from "./comments/comment-thumbnail.componen
 import { MediaComponent } from "./media/media.component";
 import { VideosComponent } from "./media/videos/videos.component";
 import { EventService } from "./services/event.service";
+import { CommentReplyComponent } from "./comments/replies/comment-reply.component";
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { EventService } from "./services/event.service";
     CommentDialogComponent,
     CommentThumbnailComponent,
     MediaComponent,
-    VideosComponent
+    VideosComponent,
+    CommentReplyComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { EventService } from "./services/event.service";
     MaterialModule,
     FlexLayoutModule,
     HttpClientModule,
-    NgxImageGalleryModule
+    NgxImageGalleryModule,
+    NgxLinkifyjsModule.forRoot()
   ],
   providers: [EventService, CommentService],
   bootstrap: [AppComponent],

@@ -1,12 +1,24 @@
 <div class="comment-dialog-wrapper">
-  <!-- <mat-spinner *ngIf="loading"></mat-spinner> -->
   <div *ngIf="empty">
-    <p>There are no comments for this event</p>
+    <mat-dialog-content>
+      <p>There are no comments for this event</p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end"
+      ><button mat-button mat-dialog-close>
+        Close
+      </button></mat-dialog-actions
+    >
   </div>
   <div *ngIf="!empty">
-    <h4>Comments</h4>
-    <div *ngFor="let comment of comments">
-      <comment-thumbnail [comment]="comment"></comment-thumbnail>
-    </div>
+    <mat-dialog-content>
+      <div *ngFor="let comment of comments">
+        <comment-thumbnail [comment]="comment"></comment-thumbnail>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end"
+      ><button mat-button mat-dialog-close>
+        Close
+      </button></mat-dialog-actions
+    >
   </div>
 </div>

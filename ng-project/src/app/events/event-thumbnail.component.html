@@ -30,8 +30,8 @@
       target="_blank"
       >RSVP</a
     >
-    <!-- <span *ngIf="pastEvent">{{ item?.yes_rsvp_count }} attended</span> -->
     <a *ngIf="pastEvent" mat-button color="accent" (click)="openCommentDialog()"
+      ><span>{{ item?.comment_count }}</span
       ><mat-icon>comment</mat-icon></a
     >
   </mat-card-actions>
