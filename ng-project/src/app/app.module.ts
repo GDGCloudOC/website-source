@@ -19,6 +19,9 @@ import { HeaderComponent } from "./navigation/header/header.component";
 import { PhotosComponent } from "./photos/photos.component";
 import { EventService } from "./services/event.service";
 import { SidenavListComponent } from "./navigation/side-nav/sidenav-list.component";
+import { CommentDialogComponent } from "./comments/comment-dialog.component";
+import { CommentService } from "./services/comment.service";
+import { CommentThumbnailComponent } from "./comments/comment-thumbnail.component";
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { SidenavListComponent } from "./navigation/side-nav/sidenav-list.compone
     EventThumbnailComponent,
     EventJumbotronComponent,
     PhotosComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    CommentDialogComponent,
+    CommentThumbnailComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,8 @@ import { SidenavListComponent } from "./navigation/side-nav/sidenav-list.compone
     HttpClientModule,
     NgxImageGalleryModule
   ],
-  providers: [EventService],
-  bootstrap: [AppComponent]
+  providers: [EventService, CommentService],
+  bootstrap: [AppComponent],
+  entryComponents: [CommentDialogComponent]
 })
 export class AppModule {}

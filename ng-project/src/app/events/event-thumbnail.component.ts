@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { CommentDialogComponent } from "../comments/comment-dialog.component";
+import { CommentService } from "../services/comment.service";
 
 @Component({
   selector: "event-thumbnail",
@@ -8,8 +11,13 @@ import { Component, OnInit, Input } from "@angular/core";
 export class EventThumbnailComponent implements OnInit {
   @Input() item: any;
   @Input() pastEvent = false;
+  eventComments = [];
+  errorMessage = "Comments can not be loaded at this time";
 
-  constructor() {}
+  constructor(
+    private dialog: MatDialog,
+    private commentService: CommentService
+  ) {}
 
   ngOnInit() {}
 
@@ -25,5 +33,29 @@ export class EventThumbnailComponent implements OnInit {
     if (h >= 12) {
       return h - 12 + ":" + s + " PM";
     }
+  }
+
+  openCommentDialog() {
+    this.commentService.getEventComments(this.item.id).subscribe(comments => {
+      this.eventComments.length > 0
+        ? ""
+        : comments.forEach(
+            (comment: any) => {
+              const commentData = {
+                comment: comment.comment,
+                replies: comment.replies,
+                member: comment.member.name,
+                photo: comment.member.photo.thumb_link
+              };
+              this.eventComments.push(commentData);
+            },
+            error => (this.errorMessage = <any>error)
+          );
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.autoFocus = true;
+
+      dialogConfig.data = this.eventComments;
+      this.dialog.open(CommentDialogComponent, dialogConfig);
+    });
   }
 }
