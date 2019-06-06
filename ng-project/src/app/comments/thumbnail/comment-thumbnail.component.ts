@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from "@angular/core";
 export class CommentThumbnailComponent implements OnInit {
   @Input() comment: any;
   replies = false;
-  btnName = this.comment.replies.length > 1 ? "Show replies" : "Show reply";
+  btnName = "Show replies";
   constructor() {}
 
   ngOnInit() {}
