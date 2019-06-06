@@ -6,7 +6,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
   templateUrl: "./comment-dialog.component.html"
 })
 export class CommentDialogComponent implements OnInit {
-  comments: any;
+  comments: [];
   loading = true;
   empty = false;
   constructor(
