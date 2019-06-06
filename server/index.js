@@ -5,6 +5,7 @@ const fetch = require('node-fetch');
 const cors = require('cors');
 const app = express();
 const port = 1337;
+const YOUTUBE_API_KEY = require('../ng-project/src/assets/apiKeys');
 
 app.use(cors());
 
@@ -30,7 +31,7 @@ app.get('/events/:id/comments', (req, res) => {
 });
 
 app.get('/channels', (req, res) => {
-	fetch(`${process.env.YOUTUBE_BASE_URL}${req.url}&id=${process.env.YOUTUBE_GDG_ID}&key=${process.env.YOUTUBE_API_KEY}`, {
+	fetch(`${process.env.YOUTUBE_BASE_URL}${req.url}&id=${process.env.YOUTUBE_GDG_ID}&key=${YOUTUBE_API_KEY}`, {
 		headers: {
 			"Referer": "http://localhost:1337"
 		}
@@ -44,7 +45,7 @@ app.get('/channels', (req, res) => {
 });
 
 app.get('/playlistItems', (req, res) => {
-	fetch(`${process.env.YOUTUBE_BASE_URL}${req.url}&key=${process.env.YOUTUBE_API_KEY}`, {
+	fetch(`${process.env.YOUTUBE_BASE_URL}${req.url}&key=${YOUTUBE_API_KEY}`, {
 		headers: {
 			"Referer": "http://localhost:1337"
 		}
