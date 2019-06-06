@@ -19,9 +19,15 @@
   <mat-divider></mat-divider>
 
   <mat-card-actions class="event-footer" align="end">
-    <span *ngIf="!pastEvent"
-      >{{ item?.yes_rsvp_count }} of {{ item?.rsvp_limit }} attending</span
+    <a
+      *ngIf="!pastEvent && item?.comment_count > 0"
+      mat-button
+      color="accent"
+      (click)="getEventComments()"
+      ><span>{{ item?.comment_count }}</span
+      ><mat-icon>comment</mat-icon></a
     >
+    <div fxFlex></div>
     <a
       *ngIf="!pastEvent"
       mat-button
@@ -30,7 +36,11 @@
       target="_blank"
       >RSVP</a
     >
-    <a *ngIf="pastEvent" mat-button color="accent" (click)="openCommentDialog()"
+    <a
+      *ngIf="pastEvent"
+      mat-button
+      color="accent"
+      (click)="getEventComments(item?.id)"
       ><span>{{ item?.comment_count }}</span
       ><mat-icon>comment</mat-icon></a
     >

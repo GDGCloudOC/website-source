@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { EventService, Status } from "../services/event.service";
 import { environment } from "src/environments/environment";
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { CommentDialogComponent } from "../comments/dialog/comment-dialog.component";
+import { CommentService } from "../services/comment.service";
 
 @Component({
   templateUrl: "./event.component.html",
@@ -15,8 +18,14 @@ export class EventComponent implements OnInit {
     upcomingEvents: "",
     pastEvents: ""
   };
+  eventComments = [];
+  errorMessage = "Comments can not be loaded at this time";
 
-  constructor(private eventService: EventService) {}
+  constructor(
+    private eventService: EventService,
+    private dialog: MatDialog,
+    private commentService: CommentService
+  ) {}
 
   ngOnInit() {
     this.getAllEvents();
@@ -57,5 +66,31 @@ export class EventComponent implements OnInit {
         this.loading = false;
       }
     );
+  }
+
+  openCommentDialog(id) {
+    this.eventComments = [];
+    this.commentService.getEventComments(id).subscribe(comments => {
+      this.eventComments.length > 0
+        ? ""
+        : comments.forEach(
+            (comment: any) => {
+              const commentData = {
+                comment: comment.comment,
+                replies: comment.replies,
+                member: comment.member.name,
+                photo: comment.member.photo,
+                role: comment.member.role
+              };
+              this.eventComments.push(commentData);
+            },
+            error => (this.errorMessage = <any>error)
+          );
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.autoFocus = true;
+
+      dialogConfig.data = this.eventComments.reverse();
+      this.dialog.open(CommentDialogComponent, dialogConfig);
+    });
   }
 }

@@ -1,0 +1,32 @@
+<mat-jumbotron
+  class="jumbotron-card"
+  imgURL="../../assets/gdg_cloud_oc_small_logo.png"
+>
+  <mat-jumbotron-content>
+    <h1>{{ event?.name }}</h1>
+
+    <h3>
+      {{ event?.local_date ? this.convertDate(event?.local_date) : "" }} |
+      {{ event?.local_time ? this.convertTime(event?.local_time) : "" }}
+    </h3>
+
+    <p [innerHtml]="event?.description"></p>
+
+    <mat-card-actions class="jumbotron-footer">
+      <span
+        >{{ event?.yes_rsvp_count }} of {{ event?.rsvp_limit }} attending
+      </span>
+      <a
+        *ngIf="event?.comment_count > 0"
+        mat-button
+        color="accent"
+        (click)="getEventComments()"
+        ><span>{{ event?.comment_count }}</span
+        ><mat-icon>comment</mat-icon></a
+      >
+      <a mat-button href="{{ event?.link }}" color="primary" target="_blank"
+        >RSVP</a
+      >
+    </mat-card-actions>
+  </mat-jumbotron-content>
+</mat-jumbotron>
