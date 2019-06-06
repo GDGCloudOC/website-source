@@ -4,7 +4,7 @@
     <h3 *ngIf="errorMessage?.length">{{ errorMessage }}</h3>
 
     <div class="photo-grid">
-      <mat-card *ngFor="let photo of photos" (click)="openGallery(photos.indexOf(photo))">
+      <mat-card *ngFor="let photo of photos" (click)="setPhotoIdx($event, photo)">
         <mat-card-content>
           <img [src]="photo?.url">
         </mat-card-content>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { environment } from "src/environments/environment";
 import { PhotosService } from "../../services/photos.service";
+import { GALLERY_IMAGE } from 'ngx-image-gallery';
 
 @Component({
   selector: "app-photos",
@@ -8,37 +8,23 @@ import { PhotosService } from "../../services/photos.service";
   styleUrls: ["./photos.component.scss"]
 })
 export class PhotosComponent implements OnInit {
+  photos: GALLERY_IMAGE[];
+  selectedPhotoIdx: number;
   loading = true;
   errorMessage = "";
 
   constructor(private photoService: PhotosService) {}
 
   ngOnInit() {
-    this.photoService.getAllPhotos().subscribe(
-      photos => {
-        if (!photos.length) {
-          this.errorMessage = "There are no photos to display at this time.";
-        } else {
-          const photoData = photos.map((photo: any) => ({
-              url: photo.photo_link,
-              thumbnailUrl: photo.thumb_link
-            }));
-          this.photoService.setLocalPhotos(photoData);
-        }
-        this.loading = false;
-      },
-      error => {
-        if (!environment.production) {
-          console.log("error retrieving photos:", error);
-        }
-        this.loading = false;
-        this.errorMessage =
-          "We were unable to retrieve photos at this time. Please try again later.";
-      }
-    );
+    this.photoService.photos.subscribe(photos => {
+      this.photos = photos;
+    });
+    this.photoService.fetchPhotos(() => this.loading = false);
   }
 
-  openGallery(index: number = 0) {
-    this.photoService.openGallery(index);
+  setPhotoIdx(event: Event, photo: GALLERY_IMAGE) {
+    this.selectedPhotoIdx = this.photos.findIndex(pic => pic.url === photo.url);
+
+    this.photoService.galleryRef.open(this.selectedPhotoIdx);
   }
 }

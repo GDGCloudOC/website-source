@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { GALLERY_CONF, NgxImageGalleryComponent } from 'ngx-image-gallery';
+import { GALLERY_CONF, NgxImageGalleryComponent, GALLERY_IMAGE } from 'ngx-image-gallery';
 import { PhotosService } from './services/photos.service';
 
 @Component({
@@ -19,12 +19,12 @@ export class AppComponent implements OnInit {
     reactToMouseWheel: false,
     reactToRightClick: true
   };
-  photos = [];
+  photos: GALLERY_IMAGE[];
 
   constructor(private photosService: PhotosService) {}
 
   ngOnInit() {
-    this.photosService.getLocalPhotos().subscribe(photos => {
+    this.photosService.photos.subscribe(photos => {
       this.photos = photos;
     });
     this.photosService.setGalleryRef(this.ngxImageGallery);
