@@ -14,14 +14,20 @@
 }
 
 #contact-form {
+  .honeypot {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    z-index: -1;
+  }
+
   fieldset {
     border: 0;
     padding: 0;
-    margin: 0;
-
-    &:not(.hideFieldset) {
-      margin: 16px 0 0;
-    }
+    margin: 16px 0 0;
 
     > * {
       font-size: 14px;

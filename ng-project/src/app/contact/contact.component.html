@@ -31,9 +31,9 @@
           <label for="message">Message (required)</label>
           <textarea name="message" id="message" rows="10" required></textarea>
         </fieldset>
-        <fieldset [ngClass]="{'hideFieldset': env.production}">
-          <label *ngIf="!env.production" for="honeypot">Honeypot (visible in dev)</label>
-          <input [type]="env.production ? 'hidden' : 'text'" name="_gotcha">
+        <fieldset [ngClass]="{'honeypot': env.production}">
+          <label [ngClass]="{'honeypot': env.production}" *ngIf="!env.production" for="_gotcha">Honeypot (visible in dev)</label>
+          <input [ngClass]="{'honeypot': env.production}" type="text" name="_gotcha" id="_gotcha" tabindex="-1">
         </fieldset>
         <fieldset>
           <button mat-raised-button color="primary" type="submit">Send</button>
