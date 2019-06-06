@@ -12,8 +12,6 @@ export enum Status {
 
 @Injectable()
 export class EventService {
-  private baseUrl = `${environment.meetupBaseUrl}/${environment.meetupGroupName}`;
-
   constructor(private http: HttpClient) {}
 
   private offsetDate(offset: number): string {
@@ -29,7 +27,7 @@ export class EventService {
     const limit = timeframe === Status.upcoming ? 'no_later_than' : 'no_earlier_than';
     const offset = timeframe === Status.upcoming ? monthLimit : -1 * monthLimit;
     return this.http.get<any>(
-      `${this.baseUrl}/events?status=${timeframe}&${limit}=${this.offsetDate(offset)}&desc=${timeframe === Status.past}`
+      `${environment.serverUrl}/events?status=${timeframe}&${limit}=${this.offsetDate(offset)}&desc=${timeframe === Status.past}`
     );
   }
 }

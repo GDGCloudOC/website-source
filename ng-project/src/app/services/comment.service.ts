@@ -9,9 +9,7 @@ export class CommentService {
 
   getEventComments(id): Observable<any> {
     return this.http.get<any>(
-      `${environment.meetupBaseUrl}/${
-        environment.meetupGroupName
-      }/events/${id}/comments`
+      `${environment.serverUrl}/events/${id}/comments`
     );
   }
 }

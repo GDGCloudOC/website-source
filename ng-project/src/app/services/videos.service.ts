@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { youtubeApiKey } from '../../assets/apiKeys';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -13,17 +12,16 @@ export class VideosService {
 
   getPlaylistId(): Observable<any> {
     return this.http.get<any>(
-      `${environment.youtubeBaseUrl}/channels?part=contentDetails&id=${environment.youtubeGDGId}&key=${youtubeApiKey}`
+      `${environment.serverUrl}/channels?part=contentDetails`
     );
   }
 
   getVideosByPlaylistId(playlistId: string, pageToken?: string): Observable<any> {
     return this.http.get<any>(
-      environment.youtubeBaseUrl
+      environment.serverUrl
       + '/playlistItems?part=contentDetails&playlistId='
       + playlistId
       + (pageToken ? '&pageToken=' + pageToken : '')
-      + '&maxResults=5'
-      + '&key=' + youtubeApiKey);
+      + '&maxResults=5');
   }
 }

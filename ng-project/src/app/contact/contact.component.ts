@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  env = environment;
+  postContactForm = `${environment.serverUrl}/contact-form`;
 
   constructor() {}
 
