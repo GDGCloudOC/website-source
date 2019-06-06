@@ -11,11 +11,12 @@
 
 .events-grid {
   display: grid;
-  grid-template: auto / calc(100% * 1 / 3 - 9px) calc(100% * 1 / 3 - 9px) calc(
-      100% * 1 / 3 - 9px
+  grid-template: auto / calc(100% * 1 / 3 - 8px) calc(100% * 1 / 3 - 8px) calc(
+      100% * 1 / 3 - 8px
     );
   gap: 13px;
   margin: 20px 0 10px;
+  padding: 0 5px;
 }
 
 .loading-spinner {

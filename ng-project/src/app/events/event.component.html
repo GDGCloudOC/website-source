@@ -5,7 +5,10 @@
       *ngIf="!loading && !errorMessages?.upcomingEvents?.length"
       fxShow.xs="false"
     >
-      <event-jumbotron [event]="nextEvent"></event-jumbotron>
+      <event-jumbotron
+        [event]="nextEvent"
+        (eventComments)="openCommentDialog($event)"
+      ></event-jumbotron>
     </div>
     <div class="event-grid-wrapper">
       <mat-tab-group
@@ -24,10 +27,16 @@
             *ngIf="!loading && !errorMessages?.upcomingEvents?.length"
           >
             <div fxShow.xs="true" fxShow.gt-xs="false">
-              <event-thumbnail [item]="nextEvent"></event-thumbnail>
+              <event-thumbnail
+                [item]="nextEvent"
+                (eventComments)="openCommentDialog($event)"
+              ></event-thumbnail>
             </div>
             <div *ngFor="let item of upcomingEvents">
-              <event-thumbnail [item]="item"></event-thumbnail>
+              <event-thumbnail
+                [item]="item"
+                (eventComments)="openCommentDialog($event)"
+              ></event-thumbnail>
             </div>
           </div>
         </mat-tab>
@@ -43,6 +52,7 @@
               <event-thumbnail
                 [item]="item"
                 [pastEvent]="true"
+                (eventComments)="openCommentDialog($event)"
               ></event-thumbnail>
             </div></div></mat-tab
       ></mat-tab-group>
