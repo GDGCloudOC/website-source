@@ -14,7 +14,7 @@ Run `npm start`. This will start a dev server and open a browser to `localhost:4
 
 # Configuring API Keys
 1. Contact Matthew Emes to get the API key for YouTube Data and any other keys that get added.
-2. Create a file called `apiKeys.ts` in the directory `website-source/ng-project/src/assets` and add the following code:
+2. Create a file called `apiKeys.ts` in the directory `website-source/ng-project/src/app/services` and add the following code:
 ```javascript
 export const youtubeApiKey = 'KEY_GOES_HERE';
 ```

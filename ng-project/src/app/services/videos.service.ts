@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
-import { youtubeApiKey } from '../../assets/apiKeys';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+
+import { youtubeApiKey } from '../../app/services/apiKeys';
 
 @Injectable({
   providedIn: 'root'
