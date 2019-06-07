@@ -9,7 +9,7 @@ Make sure you have node (>= v10.14.1), npm (>= v6.9.0), and the Angular CLI (>= 
 1. Open up a terminal and cd to `website-source/ng-project`.
 2. Run `npm install`.
 
-# Start dev server
+# Start Dev Server
 Run `npm start`. This will start a dev server and open a browser to `localhost:4200`.
 
 # Configuring API Keys
