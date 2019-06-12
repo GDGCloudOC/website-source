@@ -17,11 +17,14 @@ Run `npm start`. This will start a dev server and open a browser to `localhost:4
 2. Create a file called `apiKeys.ts` in the directory `website-source/ng-project/src/app/services` and add the following code:
 ```javascript
 export const youtubeApiKey = 'KEY_GOES_HERE';
+export const youtubeApiKeyDev = 'KEY_GOES_HERE';
+export const contactFormLinkDev = 'LINK_GOES_HERE';
 ```
-3. Add the key between the single quotes, and whatever you do, **DO NOT CHECK IN THIS FILE TO SOURCE CONTROL**. This file is already included in the `.gitignore` file, so make sure this does not get removed. Add any other API keys here following the same pattern.
+3. Add the keys between the single quotes, and whatever you do, **DO NOT CHECK IN THIS FILE TO SOURCE CONTROL**. This file is already included in the `.gitignore` file, so make sure this does not get removed. The items that end in "dev" are used while you are developing. It is recommended that you generate your own YouTube Data API key using the [Google API Console](https://console.developers.google.com). If you do not provide your own API key, then the videos section will be broken, since the keys used in production only allow requests from the live site. It is also recommended that you create an account for [Basin](https://usebasin.com) if you plan to test the contact form. If you do not do this, you will not be able to retrieve the form submissions, and Matthew will not be happy about getting spammed by test emails.
 
 # Contributors
 
  - Charlie Collier
  - Matthew Emes
+ - Jarid Goodwin
  - Mikkel Sandberg
