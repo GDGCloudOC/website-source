@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { contactFormLinkDev } from '../services/apiKeys';
 
 @Component({
   selector: 'app-contact',
@@ -8,6 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ContactComponent implements OnInit {
   env = environment;
+  contactFormLink = !this.env.production && contactFormLinkDev ? contactFormLinkDev : this.env.contactFormLink;
 
   constructor() {}
 

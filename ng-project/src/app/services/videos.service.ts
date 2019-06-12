@@ -2,7 +2,9 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { youtubeApiKey } from "../../app/services/apiKeys";
+import { youtubeApiKey, youtubeApiKeyDev } from "../../app/services/apiKeys";
+
+const youtubeKey = !environment.production && youtubeApiKeyDev ? youtubeApiKeyDev : youtubeApiKey;
 
 @Injectable({
   providedIn: "root"
@@ -14,7 +16,7 @@ export class VideosService {
     return this.http.get<any>(
       `${environment.youtubeBaseUrl}/channels?part=contentDetails&id=${
         environment.youtubeGDGId
-      }&key=${youtubeApiKey}`
+      }&key=${youtubeKey}`
     );
   }
 
@@ -29,7 +31,7 @@ export class VideosService {
         (pageToken ? "&pageToken=" + pageToken : "") +
         "&maxResults=5" +
         "&key=" +
-        youtubeApiKey
+        youtubeKey
     );
   }
 }
